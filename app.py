@@ -26,7 +26,7 @@ load_dotenv()
 # Streamlit secrets
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 NVIDIA_API_KEY = st.secrets["NVIDIA_API_KEY"]
-GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+GEMINI_API_KEY = st.secrets["Gemini_API_key"]
 LANGSMITH_API_KEY = st.secrets["LANGSMITH_API_KEY"]
 
 # Set up LangSmith environment variables
