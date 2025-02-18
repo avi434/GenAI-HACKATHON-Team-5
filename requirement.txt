@@ -1,0 +1,13 @@
+streamlit
+langchain_nvidia_ai_endpoints
+langchain_openai
+langchain-core
+langchain
+PyPDF2
+google-generativeai
+langchain_google_genai
+ragas
+streamlit-extras
+pandas
+python-dotenv
+faiss-cpu
