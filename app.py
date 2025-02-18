@@ -24,10 +24,10 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 # langsmith_key = os.getenv("LANGSMITH_API_KEY")
-os.environ["LANGCHAIN_API_KEY"] =st.secrets("LANGSMITH_API_KEY")
-os.environ["LANGCHAIN_TRACING_V2"] = 'true'
-os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
-os.environ["LANGCHAIN_PROJECT"]= "Chat-with-doc"
+# os.environ["LANGCHAIN_API_KEY"] =st.secrets("LANGSMITH_API_KEY")
+# os.environ["LANGCHAIN_TRACING_V2"] = 'true'
+# os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
+# os.environ["LANGCHAIN_PROJECT"]= "Chat-with-doc"
    
 if langsmith_key:
     print("Langsmith API key loaded successfully!")
