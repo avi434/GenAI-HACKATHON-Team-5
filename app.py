@@ -29,10 +29,10 @@ load_dotenv()
 # os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
 # os.environ["LANGCHAIN_PROJECT"]= "Chat-with-doc"
    
-if langsmith_key:
-    print("Langsmith API key loaded successfully!")
-else:
-    print("Langsmith API key not found. Please check your .env file.")
+# if langsmith_key:
+#     print("Langsmith API key loaded successfully!")
+# else:
+#     print("Langsmith API key not found. Please check your .env file.")
 
 OPENAI_MODELS = {
     "chat": "gpt-3.5-turbo",
