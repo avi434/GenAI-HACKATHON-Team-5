@@ -8,14 +8,13 @@ import google.generativeai as genai
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS  # Updated import
 from typing import Union, List
 from ragas import evaluate, EvaluationDataset
 from ragas.llms import LangchainLLMWrapper
 import os
 import pandas as pd
-from ragas import evaluate
-from ragas.metrics import Faithfulness,LLMContextRecall,FactualCorrectness
+from ragas.metrics import Faithfulness, LLMContextRecall, FactualCorrectness
 from streamlit_extras.colored_header import colored_header
 from streamlit_extras.app_logo import add_logo
 import time
@@ -23,26 +22,29 @@ from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
-# langsmith_key = os.getenv("LANGSMITH_API_KEY")
-# os.environ["LANGCHAIN_API_KEY"] =st.secrets("LANGSMITH_API_KEY")
-# os.environ["LANGCHAIN_TRACING_V2"] = 'true'
-# os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
-# os.environ["LANGCHAIN_PROJECT"]= "Chat-with-doc"
-   
-# if langsmith_key:
-#     print("Langsmith API key loaded successfully!")
-# else:
-#     print("Langsmith API key not found. Please check your .env file.")
+
+# Streamlit secrets
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+NVIDIA_API_KEY = st.secrets["NVIDIA_API_KEY"]
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+LANGSMITH_API_KEY = st.secrets["LANGSMITH_API_KEY"]
+
+# Set up LangSmith environment variables
+os.environ["LANGCHAIN_API_KEY"] = LANGSMITH_API_KEY
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
+os.environ["LANGCHAIN_PROJECT"] = "Chat-with-doc"
+
+# Verify LangSmith setup
+if LANGSMITH_API_KEY:
+    print("Langsmith API key loaded successfully!")
+else:
+    print("Langsmith API key not found. Please check your secrets.")
 
 OPENAI_MODELS = {
     "chat": "gpt-3.5-turbo",
     "embeddings": "text-embedding-3-small"
 }
-
-# API Keys
-OPENAI_API_KEY = st.secrets("OPENAI_API_KEY")
-NVIDIA_API_KEY = st.secrets("NVIDIA_API_KEY")
-GEMINI_API_KEY = st.secrets("GEMINI_API_KEY")
 
 sample_queries = [
                 "What is Transformer?",
