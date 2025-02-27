@@ -234,7 +234,7 @@ class ModelEvaluation:
         genai.configure(api_key=gemini_api_key)
         
         self.llm = ChatGoogleGenerativeAI(
-            model="gemini-pro",
+            model="gemini-1.5-flash",
             google_api_key=gemini_api_key,  # Explicitly pass the API key
             temperature=0,
             convert_system_message_to_human=True
