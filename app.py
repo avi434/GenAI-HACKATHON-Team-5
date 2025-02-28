@@ -354,10 +354,10 @@ class ModelEvaluation:
         **Original Document Context:**
         {document}
  
-        **OpenAI Summary:**
+        **OpenAI Response:**
         {openai_response}
  
-        **NVIDIA Summary:**
+        **NVIDIA Response:**
         {nvidia_response}
         """
             
